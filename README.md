@@ -14,28 +14,28 @@ A CLI wrapper to ytcog. From the command line you can:
 ## Usage
 
 ### Download one or more videos
-```js
-ytcog-dl [-d] id [id id ... ][options]
+```bash
+~$ ytcog-dl [-d] id [id id ... ][options]
 ```
 ### Obtain video information
-```js
-ytcog-dl -i id [options]
+```bash
+~$ ytcog-dl -i id [options]
 ```
 ### Output stream summary
-```js
-ytcog-dl -s id [options]
+```bash
+~$ ytcog-dl -s id [options]
 ```
 ### Obtain channel information
-```js
-ytcog-dl -i id [options]
+```bash
+~$ ytcog-dl -i id [options]
 ```
 ### Obtain channel results
-```js
-ytcog-dl [-r] id [options]
+```bash
+~$ ytcog-dl [-r] id [options]
 ```
 ### Obtain search results
-```js
-ytcod-dl [-r] [options]
+```bash
+~$ ytcod-dl [-r] [options]
 ```
 Except for obtaining search results __id__ is mandatory and can be 
 * a video watch url, 
@@ -87,8 +87,8 @@ Except for obtaining search results __id__ is mandatory and can be
     
 ## Examples 
     
-```js
-ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm // downloads 3 videos at highest quality, preferring webm.
-ytcog-dl UC128HASYghgkjYGEYGVS-J1 // get the 60+ newest videos from a channel
-ytcog-dl -q "soccer" -t week -o views -n 20 // get 20+ results using the search term "soccer" over the past week, ordered by most views
+```bash
+~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm // downloads 3 videos at highest quality, preferring webm.
+~$ ytcog-dl UC128HASYghgkjYGEYGVS-J1 // get the 60+ newest videos from a channel
+~$ ytcog-dl -q "soccer" -t week -o views -n 20 // get 20+ results using the search term "soccer" over the past week, ordered by most views
 ```
