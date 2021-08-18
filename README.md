@@ -70,7 +70,7 @@ Except for obtaining search results __id__ is mandatory and can be
         * ${videoCodec}         | h264 or vp9
         * ${videoQuality}       | i.e. 1080p, 360p, etc
         * default filenames are: 
-        * download              | "${author} - ${title} - ${id} - ${videoQuality} - ${videoCodec} - {audioCodec}"
+        * download              | "${author} - ${title} - ${id} - ${videoQuality} - ${videoCodec} - ${audioCodec}"
         * video information     | "${author} - ${title} - ${id} - ${timestamp}"
         * channel information   | "${author} - ${channelId} - ${timestamp}"
         * channel results       | "${author} - ${channelId} - ${order} - ${timestamp}"
