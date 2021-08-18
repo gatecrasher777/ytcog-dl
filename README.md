@@ -31,11 +31,11 @@ ytcog-dl -i id [options]
 ```
 ### Obtain channel results
 ```js
-ytcog-dl id [options]
+ytcog-dl [-r] id [options]
 ```
 ### Obtain search results
 ```js
-ytcod-dl [options]
+ytcod-dl [-r] [options]
 ```
 Except for obtaining search results __id__ is mandatory and can be 
 * a video watch url, 
@@ -49,12 +49,13 @@ Except for obtaining search results __id__ is mandatory and can be
     --info          -i    fetch video/channel information - written to ".info.json" and ".raw.json" files.
     --streamInfo    -s    output stream summary of video(id) to console 
     --version       -v    ytcog-dl version
+    --results       -r    fetch search/channel results
 ## Options
     --audioFormat   -x number | choose a specific audio stream number (after running stream summary) | default -1 use preference algorithm and fallbacks
     --audioQuality  -a [highest|medium|lowest|none] | audio quality preference | none for video only | default medium
     --cookie        -c string | provide a logged-in YouTube cookie string | default ""
     --container     -e [any|mp4|webm|mkv] | provide your container preference | default is mkv
-    --duration      -n [any|short|long] | duration of videos in search results | short <4min, long >20m | default any
+    --length        -l [any|short|long] | length of videos to include in search results | short <4min, long >20m | default any
     --filename      -f string | supply a filename without an extension | you can use the following placeholders in your filename string:
         * ${audioCodec}         | aac or opus
         * ${author}        
@@ -79,8 +80,15 @@ Except for obtaining search results __id__ is mandatory and can be
     --path          -p "path to download folder" | defaults to current directory  
     --period        -t [hour|day|week|month|year|any] | search result period | default: day
     --query         -q string | provide a search term | default: "video"
-    --results       -r number | minimum number of results to fetch (if available) | default: 60 (channel) 100 (search)
-    --userAgent     -u "user agent string" | default "" - one is chosen for you
+    --quantity      -n number | minimum number of results to fetch (if available) | default: 60 (channel) 100 (search)
+    --userAgent     -u string | user agent string | default "" one is chosen for you
     --videoFormat   -x streamNumber | choose a specific video stream (after running stream summary) | default -1 use preference algorithm and fallbacks
-    --videoQuality  -v [hightest|1080p|720p|480p|medium|360p|240p|144p|lowest|none] | video quality preference | none for audio only | default 1080p
+    --videoQuality  -v [highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none] | video quality preference | none for audio only | default 1080p
     
+## Examples 
+    
+```js
+ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm // downloads 3 videos at highest quality, preferring webm.
+ytcog-dl UC128HASYghgkjYGEYGVS-J1 // get the 60+ newest videos from a channel
+ytcog-dl -q "soccer" -t week -o views -n 20 // get 20+ results using the search term "soccer" over the past week, ordered by most views
+```
