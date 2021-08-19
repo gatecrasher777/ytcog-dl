@@ -19,19 +19,19 @@ A CLI wrapper to ytcog. From the command line you can:
 ```
 ### Obtain video information
 ```bash
-~$ ytcog-dl -i id [options]
+~$ ytcog-dl -i id [id id ... ][options]
 ```
 ### Output stream summary
 ```bash
-~$ ytcog-dl -s id [options]
+~$ ytcog-dl -s id [id id ... ][options]
 ```
 ### Obtain channel information
 ```bash
-~$ ytcog-dl -i id [options]
+~$ ytcog-dl -i id [id id ... ][options]
 ```
 ### Obtain channel results
 ```bash
-~$ ytcog-dl [-r] id [options]
+~$ ytcog-dl [-r] id [id id ... ][options]
 ```
 ### Obtain search results
 ```bash
