@@ -17,27 +17,27 @@ A CLI wrapper to ytcog. From the command line you can:
 ```bash
 ~$ ytcog-dl [-d] id [id id ... ][options]
 ```
-### Obtain video information
+### Obtain information on one or more videos
 ```bash
 ~$ ytcog-dl -i id [id id ... ][options]
 ```
-### Output stream summary
+### Output stream summaries for one or more videos
 ```bash
 ~$ ytcog-dl -s id [id id ... ][options]
 ```
-### Obtain channel information
+### Obtain information on one or more channels
 ```bash
 ~$ ytcog-dl -i id [id id ... ][options]
 ```
-### Obtain channel results
+### Obtain video channel results from one or more channels
 ```bash
 ~$ ytcog-dl [-r] id [id id ... ][options]
 ```
-### Obtain search results
+### Obtain video search results
 ```bash
 ~$ ytcod-dl [-r] [options]
 ```
-Except for obtaining search results __id__ is mandatory and can be 
+Except for obtaining search results at least one __id__ is mandatory and can be 
 * a video watch url, 
 * an 11 character YouTube video id,
 * a channel url or
