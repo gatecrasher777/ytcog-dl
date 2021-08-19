@@ -56,25 +56,27 @@ Except for obtaining search results __id__ is mandatory and can be
     --cookie        -c string | provide a logged-in YouTube cookie string | default ""
     --container     -e [any|mp4|webm|mkv] | provide your container preference | default is mkv
     --length        -l [any|short|long] | length of videos to include in search results | short <4min, long >20m | default any
-    --filename      -f string | supply a filename without an extension | you can use the following placeholders in your filename string:
+    --filename      -f string | supply a filename without an extension | you can use the placeholders in your filename string, such as:
         * ${audioCodec}         | aac or opus
         * ${author}        
-        * ${channelId}
-        * ${date}               | YYYYMMDD 
-        * ${datetime}           | YYYYMMDD HHMMSS
-        * ${id}                         
+        * ${channel}            | channel id of video
+        * ${date}               | YYYYMMDD - current date for channel/search, published date for video
+        * ${datetime}           | YYYYMMDD HHMMSS - current date & time for channel/search, published date & time for video
+        * ${id}                 | video or channel id        
         * ${order}              | result order
         * ${period}             | result period
-        * ${timestamp}          | unix timestamp - seconds since the epoch
+        * ${timestamp}          | unix timestamp - seconds since the epoch, current timestamp for channel/search, published timestamp for video
         * ${title}          
         * ${videoCodec}         | h264 or vp9
         * ${videoQuality}       | i.e. 1080p, 360p, etc
+        * ${...}                | you can use any other video/channel/search info properties
         * default filenames are: 
-        * download              | "${author} - ${title} - ${id} - ${videoQuality} - ${videoCodec} - ${audioCodec}"
-        * video information     | "${author} - ${title} - ${id} - ${timestamp}"
-        * channel information   | "${author} - ${channelId} - ${timestamp}"
-        * channel results       | "${author} - ${channelId} - ${order} - ${timestamp}"
-        * search results        | "${query} - ${order} - ${period} - ${timestamp}"    
+        * download              | "${author} - ${datetime} - ${title} - ${id} - ${videoQuality} - ${videoCodec} - ${audioCodec}"
+        * video information     | "${author} - ${datetime} - ${title} - ${id}"
+        * channel information   | "${author} - ${id} - ${datetime}"
+        * channel results       | "${author} - ${id} - ${datetime} - ${order}"
+        * search results        | "${query} - ${datetime} - ${order} - ${period}"
+         
     --mediaBitrate  -m [highest/lowest] | prefered bitrate when quality is equal | default highest
     --order         -o [relevance|age|views|rating|new|old] | order of results | search: relevance (default), age, views, rating, channel: new (default),old,views
     --path          -p "path to download folder" | defaults to current directory  
