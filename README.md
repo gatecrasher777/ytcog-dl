@@ -101,8 +101,8 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 ## Examples 
     
 ```bash
-~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm // downloads 3 videos at highest quality, preferring webm.
+~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm // downloads 3 videos at highest quality, preferring webm
 ~$ ytcod-dl jsadYFJBH1h -f "${title}" -d "author,title,published,comment=my first video" //downlaod a video with filename consisting of the original title. Embed specified metadata
 ~$ ytcog-dl UC128HASYghgkjYGEYGVS-J1 // get the 60+ newest videos from a channel
-~$ ytcog-dl -q "soccer" -t week -o views -n 20 // get 20+ results using the search term "soccer" over the past week, ordered by most views
+~$ ytcog-dl -q "soccer" -t week -o views -n 20 // get 20+ most viewed results using the search term "soccer" over the past week
 ```
