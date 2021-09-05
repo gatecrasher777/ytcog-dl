@@ -16,33 +16,9 @@ If you need the added efficiency of a maintaned session, rather use the [ytcog i
 
 ## Usage
 
-In general:
+### In general:
 ```bash
 ~$ ytcog-dl [action] id [id id ...] [options]
-```
-### Download one or more videos
-```bash
-~$ ytcog-dl [-d] id [id id ... ][options]
-```
-### Obtain information on one or more videos
-```bash
-~$ ytcog-dl -i id [id id ... ][options]
-```
-### Output stream summaries for one or more videos
-```bash
-~$ ytcog-dl -s id [id id ... ][options]
-```
-### Obtain information on one or more channels
-```bash
-~$ ytcog-dl -i id [id id ... ][options]
-```
-### Obtain video channel results from one or more channels
-```bash
-~$ ytcog-dl [-r] id [id id ... ][options]
-```
-### Obtain video search results
-```bash
-~$ ytcod-dl [-r] [options]
 ```
 Except for obtaining search results at least one __id__ is mandatory and can be 
 * a video watch url, 
@@ -50,7 +26,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 * a channel url or
 * a 24 character channel id (beginning with "UC")  
 
-## Actions
+#### Actions
 
     --download      -d    download media file
     --help          -h    output useage/actions/options to console
@@ -61,15 +37,19 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     --results       -r    fetch search/channel results - written to "_results.json" and "_raw_results.json" files (raw: as  
     supplied by youtube)  
 
-## Options
-
-### General options (common to all requests)
+#### General options (common to all requests)
 
      --cookie        -c string - provide a logged-in YouTube cookie string - default: ""
     
      --userAgent     -u string - user agent string - default: one is chosen for you
 
-### Download options
+### Video Downloads
+
+```bash
+~$ ytcog-dl [-d] id [id id ... ][options]
+```
+
+#### Options
 
     --audioFormat   -x number - specific audio stream number to download - default: -1 (use preference algorithm and fallback   
                        streams)
@@ -116,8 +96,14 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
                        default 1080p
-    
-### Video information options
+                       
+### Video information
+
+```bash
+~$ ytcog-dl -i id [id id ... ][options]
+```
+
+#### Options
     
     --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
                        such as:
@@ -138,7 +124,13 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the video object created by ytcog-dl)  
                         
-### Stream summary options
+### Stream summaries
+
+```bash
+~$ ytcog-dl -s id [id id ... ][options]
+```
+
+#### Options
 
     --audioQuality  -a highest|medium|lowest|none - audio quality preference - none for video only - default medium
     
@@ -148,8 +140,13 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
                        default: 1080p
-    
-### Channel information options    
+                       
+### Channel information
+```bash
+~$ ytcog-dl -i id [id id ... ][options]
+```
+
+#### Options    
     
     --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
                        such as:
@@ -167,8 +164,14 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
-                        
-### Channel result options    
+
+### Channel results
+
+```bash
+~$ ytcog-dl [-r] id [id id ... ][options]
+```
+
+#### Options    
     
     --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename    
                        string, such as:
@@ -191,8 +194,14 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel results created by ytcog-dl)  
-    
-### Search result options
+
+### Search results
+
+```bash
+~$ ytcod-dl [-r] [options]
+```
+
+#### Options
     
     --features      -F live|4k|hd|subtitles|cc|360|vr180|3d|hdr|location|purchased  
                        you can add one (ie -F live) or more (ie -F live -F hd) features from:
