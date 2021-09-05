@@ -270,3 +270,8 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 // get 20+ most viewed video results using the search term "soccer" over the past week
 ~$ ytcog-dl -q "soccer" -t week -o views -n 20 
 ```
+## Installation
+
+```bash
+~$ npm install -g ytcog-dl
+```
