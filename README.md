@@ -80,14 +80,15 @@ Except for obtaining search results at least one __id__ is mandatory and can be
         * ${videoQuality}       - i.e. 1080p, 360p, etc
         * ${...}                - you can use any other video/channel/search info properties
         The default filename is "${author}_${datetime}_${title}_${id}_${videoQuality}_${videoCodec}_${audioCodec}"
-    --mediaBitrate  -m highest|lowest - prefered bitrate when quality is equal - default: highest
-    --metadata      -d string - supply a string of comma separated video properties to embed in the downloaded file - no metadata is embedded by default. One or more of  
-        * author                - Will reflect as AUTHOR in webm/mkv containers, as artist in mp4
-        * title                 - Will reflect as TITLE in webm/mkv containers, as title in mp4
-        * description           - Will reflect as DESCRIPTION in webm/mkv containers, as description in mp4
-        * keywords              - Will reflect as KEYWORDS in webm/mkv containers, as synopsis in mp4 
-        * published             - Will reflect as DATE in webm/mkv containers, as date in mp4
-        * comment=text          - Add some custom text, Will reflect as COMMENT in webm/mkv, as comment in mp4 
+    --mediaBitrate  -b highest|lowest - prefered bitrate when quality is equal - default: highest
+    --metadata      -m author|title|description|keywords|published|comment [string] - video property to embed in downloaded file - one or more (i.e. -m author -m title) of  
+        * author                - Will reflect as AUTHOR in webm/mkv containers, as artist in mp4 containers
+        * title                 - Will reflect as TITLE in webm/mkv containers, as title in mp4 containers
+        * description           - Will reflect as DESCRIPTION in webm/mkv containers, as description in mp4 containers
+        * keywords              - Will reflect as KEYWORDS in webm/mkv containers, as synopsis in mp4 containers
+        * published             - Will reflect as DATE in webm/mkv containers, as date in mp4 containers
+        * comment string        - Add some custom text, Will reflect as COMMENT in webm/mkv, as comment in mp4 containers
+        [string] is required for a comment metadata, and if specified for any other metadata fields its value will be used to override the fetched video property.
     --path          -p "path/to/download/folder" - defaults to the current directory  
     --userAgent     -u string - user agent string - default: one is chosen for you
     --videoFormat   -x streamNumber - choose a specific video stream (after running stream summary) | default -1 use preference algorithm and fallback streams
@@ -158,6 +159,18 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --cookie        -c string - provide a logged-in YouTube cookie string - default ""
     --length        -l any|short|medium|long - length of videos to include in search results - short <4min, medium 4min-20min, long >20min - default any
+    --features      -F live|4k|hd|subtitles|cc|360|vr180|3d|hdr|location|purchased - you can add one (ie -F live) or more (ie -F live -F hd) features from:
+        * live                  - only include live videos
+        * 4k                    - only include videos with 4k resolution
+        * hd                    - only include videos with high definition
+        * subtitles             - only include videos with subtitles or close captions
+        * cc                    - only include videos published under creative commons licence
+        * 360                   - only include 360 degree videos
+        * vr180                 - only include virtual reality 180 degree videos
+        * 3d                    - only include 3 dimensional videos
+        * hdr                   - only include videos with high dynamic range 
+        * location              - only include videos with geolocation tagging
+        * purchased             - only include videos you have purchased
     --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string, such as:
         * ${date}               - YYYYMMDD - current date
         * ${datetime}           - YYYYMMDD HHMMSS - current date & time      
@@ -167,6 +180,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
         * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
         * ${...}                - you can use any other search info properties
         The default filename is "${query}_${datetime}_${order}_${period}"
+    --items         -i any|videos|channels|playlists|movies - what items to search for - default: videos
     --order         -o relevance|age|views|rating - order of results - default: relevance
     --path          -p "path/to/download/folder" - defaults to the current directory  
     --period        -t hour|day|week|month|year|any - search result period - default: day
