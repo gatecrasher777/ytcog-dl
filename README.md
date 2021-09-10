@@ -33,12 +33,12 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 
     --download      -d    download media file
     --help          -h    output useage/actions/options to console
-    --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files. (raw: as   
-    supplied by youtube)
+    --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
+                          (raw: as supplied by youtube)
     --streamInfo    -s    output stream summary of video(id) to console 
     --version       -v    ytcog-dl version
-    --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files (raw: as  
-    supplied by youtube)  
+    --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
+                          (raw: as supplied by youtube)  
 
 #### General options (common to all requests)
 
@@ -54,12 +54,12 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 
 #### Options
 
-    --audioFormat   -x number - specific audio stream number to download - default: -1 (use preference algorithm and fallback   
+    --audioFormat   -A number - specific audio stream number to download - default: -1 (use preference algorithm and fallback   
                        streams)
     
     --audioQuality  -a highest|medium|lowest|none - audio quality preference - none for video only - default: medium
         
-    --container     -e any|mp4|webm|mkv - provide your container preference - default: any
+    --container     -C any|mp4|webm|mkv - provide your container preference - default: any
         * any                   - no preference between mp4 (h264 with aac) or webm (vp9 with opus) (default)
         * mp4                   - prefers mp4 codecs to webm codecs when quality is equal
         * webm                  - prefers webm codecs to mp4 codecs when quality is equal 
@@ -80,7 +80,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * ${...}                - you can use any other video/channel/search info properties
                        The default filename is "${author}_${datetime}_${title}_${id}_${videoQuality}_${videoCodec}_${audioCodec}"
     
-    --mediaBitrate  -b highest|lowest - prefered bitrate when quality of two streams is equal - default: highest
+    --mediaBitrate  -M highest|lowest - prefered bitrate when quality of two streams is equal - default: highest
     
     --metadata      -m author|title|description|keywords|published|comment|key [string] - video property to embed in downloaded file  
                        one or more (i.e. -m author -m title) of  
@@ -96,7 +96,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --path          -p string - string should specify the path to the download folder. Defaults to the current directory. 
     
-    --videoFormat   -x number - specific video stream to download. Default: -1 (use preference algorithm and fallback streams)
+    --videoFormat   -V number - specific video stream to download. Default: -1 (use preference algorithm and fallback streams)
     
     --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
                        default 1080p
@@ -138,9 +138,9 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 
     --audioQuality  -a highest|medium|lowest|none - audio quality preference - none for video only - default medium
     
-    --container     -e any|mp4|webm|mkv - provide your container preference - default is mkv
+    --container     -C any|mp4|webm|mkv - provide your container preference - default is mkv
     
-    --mediaBitrate  -m highest|lowest - prefered bitrate when quality is equal - default: highest
+    --mediaBitrate  -M highest|lowest - prefered bitrate when quality is equal - default: highest
     
     --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
                        default: 1080p
@@ -160,7 +160,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * ${id}                 - channel id
                         * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
                         * ${...}                - you can use any other video/channel/search info properties
-                       The default filename is "${author}_${id}_${datetime}"
+                       The default filename is "${author}_${id}_${datetime}_channel"
                        
     --path          -p "path/to/download/folder" - defaults to the current directory  
     
@@ -186,7 +186,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * ${order}              - result order
                         * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
                         * ${...}                - you can use any other video/channel/search info properties
-                       The default filename is "${author}_${id}_${datetime}_${order}"
+                       The default filename is "${author}_${id}_${datetime}_${order}_channel"
 
     --items         -i videos|playlists|channels|search - what items to fetch - default: videos
 
@@ -196,12 +196,65 @@ Except for obtaining search results at least one __id__ is mandatory and can be
 
     --query         -q string - provide a search term - default: "video" (applies only to items:search)
     
-    --quantity      -n number - minimum number of results to fetch (if available) - default: 60 
+    --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
     
     --raw           -r yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel results created by ytcog-dl)  
+
+### Playlist information
+```bash
+~$ ytcog-dl -i id [id id ... ][options]
+```
+
+#### Options    
+    
+    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
+                       such as:
+                        * ${compiler}           - compiler's channel display name
+                        * ${date}               - YYYYMMDD - current date 
+                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time 
+                        * ${id}                 - playlist id
+                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
+                        * ${title}              - title of the playlist
+                        * ${...}                - you can use any other playlist properties
+                       The default filename is "${compiler}_${title}_${id}_${datetime}_playlist"
+                       
+    --path          -p string - path to your download folder - defaults to the current directory  
+    
+    --raw           -r yes|no|only - save raw data options 
+                        * yes                   - save raw json files, 
+                        * no                    - skip saving raw json files (default), 
+                        * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
+
+### Playlist results
+
+```bash
+~$ ytcog-dl [-r] id [id id ... ][options]
+```
+
+#### Options    
+    
+    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename    
+                       string, such as:
+                        * ${compiler}           - compiler's channel display name
+                        * ${date}               - YYYYMMDD - current date
+                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time
+                        * ${id}                 - playlist id
+                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
+                        * ${title}              - title of the playlist
+                        * ${...}                - you can use any other playlist properties
+                       The default filename is "${compiler}_${title}_${id}_${datetime}_playlist"
+    
+    --path          -p string - defaults to the current directory  
+    
+    --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
+    
+    --raw           -r yes|no|only - save raw data options 
+                        * yes                   - save raw json files, 
+                        * no                    - skip saving raw json files (default), 
+                        * only                  - save only the raw json files (not the channel results created by ytcog-dl)                         
 
 ### Search results
 
@@ -234,9 +287,14 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * ${query}              - search term
                         * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
                         * ${...}                - you can use any other search info properties
-                        The default filename is "${query}_${datetime}_${order}_${period}"
+                        The default filename is "${query}_${datetime}_${order}_${period}_search"
         
     --items         -i any|videos|channels|playlists|movies - what items to search for - default: videos
+                        * any                   - results may include videos, channels or playlists
+                        * videos                - results must contain videos only
+                        * playlists             - results must contain playlists only
+                        * channels              - results must contain channels only
+                        * movies                - results must contain movies (videos tagged as movies)
    
     --length        -l any|short|medium|long - length of videos to include in search results 
                         * any                   - videos of any length (default)
@@ -252,11 +310,11 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --path          -p string - defaults to the current directory  
     
-    --period        -t hour|day|week|month|year|any - search result period - default: day
+    --period        -P hour|day|week|month|year|any - search result period - default: day
     
     --query         -q string - provide a search term - default: "video"
     
-    --quantity      -n number - minimum number of results to fetch (if available) - default: 100
+    --quantity      -Q number - if available the number of results will equal or exceed this number - default: 100
     
     --raw           -r yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
@@ -267,16 +325,16 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
 ```bash
 // downloads 3 videos at highest quality, preferring webm:
-~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -e webm 
+~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -C webm 
 
-//downlaod a video with filename consisting of the original title. Embed specified metadata
-~$ ytcod-dl jsadYFJBH1h -f "${title}" -d author -d title -d comment "my first video"
+//downlaod a video with filename consisting only of the original title. Embed specified metadata
+~$ ytcod-dl jsadYFJBH1h -f "${title}" -m author -m title -d comment "my first video"
 
 // get the 60+ newest videos from a channel
 ~$ ytcog-dl UC128HASYghgkjYGEYGVS-J1 
 
-// get 20+ most viewed video results using the search term "soccer" over the past week
-~$ ytcog-dl -q "soccer" -t week -o views -n 20 
+// get 200+ most viewed video results using the search term "soccer" over the past week
+~$ ytcog-dl -q "soccer" -P week -o views -Q 200 
 ```
 ## Installation
 
