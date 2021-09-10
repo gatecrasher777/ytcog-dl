@@ -7,9 +7,9 @@ A CLI wrapper to ytcog. From the command line you can:
 * Download one or more videos 
 * Obtain video information
 * Output a stream summary to choose specific streams
-* Obtain channel information
-* Fetch channel video results
-* Fetch search results
+* Save search results: videos, playlists, channels, movies
+* Save channel results: videos, playlists, related channels, about, search
+* Save playlist videos 
 
 Each command line request represents a completed session. 
 If you need the added efficiency of a maintaned session, rather use the [ytcog innertube library](https://github.com/gatecrasher777/ytcog) directly.  
@@ -23,18 +23,21 @@ If you need the added efficiency of a maintaned session, rather use the [ytcog i
 Except for obtaining search results at least one __id__ is mandatory and can be 
 * a video watch url, 
 * an 11 character YouTube video id,
-* a channel url or
+* a channel url
 * a 24 character channel id (beginning with "UC")  
+* a playlist url
+* a 34 character playlist id (beginning with "PL")
+
 
 #### Actions
 
     --download      -d    download media file
     --help          -h    output useage/actions/options to console
-    --info          -i    fetch video/channel information - written to "_info.json" and "_raw_info.json" files. (raw: as   
+    --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files. (raw: as   
     supplied by youtube)
     --streamInfo    -s    output stream summary of video(id) to console 
     --version       -v    ytcog-dl version
-    --results       -r    fetch search/channel results - written to "_results.json" and "_raw_results.json" files (raw: as  
+    --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files (raw: as  
     supplied by youtube)  
 
 #### General options (common to all requests)
@@ -79,20 +82,21 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --mediaBitrate  -b highest|lowest - prefered bitrate when quality of two streams is equal - default: highest
     
-    --metadata      -m author|title|description|keywords|published|comment [string] - video property to embed in downloaded file  
+    --metadata      -m author|title|description|keywords|published|comment|key [string] - video property to embed in downloaded file  
                        one or more (i.e. -m author -m title) of  
                         * author          - reflects as AUTHOR in webm/mkv containers, as artist in mp4 containers
                         * title           - reflects as TITLE in webm/mkv containers, as title in mp4 containers
                         * description     - reflects as DESCRIPTION in webm/mkv containers, as description in mp4 containers
                         * keywords        - reflects as KEYWORDS in webm/mkv containers, as synopsis in mp4 containers
                         * published       - reflects as DATE in webm/mkv containers, as date in mp4 containers
-                        * comment string  - custom text, reflects as COMMENT in webm/mkv, as comment in mp4 containers
+                        * comment text    - custom text, reflects as COMMENT in webm/mkv, as comment in mp4 containers
+                        * key value       - custom key, custom value. key must be a single word without spaces
                        [string] is required for a comment metadata, and if specified for any other metadata fields its value  
-                       will be used to override the fetched video property.
+                       will be used to override the fetched video property. 
     
-    --path          -p "path/to/download/folder" - defaults to the current directory  
+    --path          -p string - string should specify the path to the download folder. Defaults to the current directory. 
     
-    --videoFormat   -x number - specific video stream to download | default: -1 (use preference algorithm and fallback streams)
+    --videoFormat   -x number - specific video stream to download. Default: -1 (use preference algorithm and fallback streams)
     
     --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
                        default 1080p
@@ -183,10 +187,14 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
                         * ${...}                - you can use any other video/channel/search info properties
                        The default filename is "${author}_${id}_${datetime}_${order}"
-                       
-    --order         -o new|old|views - order of results - default: new 
+
+    --items         -i videos|playlists|channels|search - what items to fetch - default: videos
+
+    --order         -o new|old|views|updated - order of results - default: new 
     
-    --path          -p "path/to/download/folder" - defaults to the current directory  
+    --path          -p string - defaults to the current directory  
+
+    --query         -q string - provide a search term - default: "video" (applies only to items:search)
     
     --quantity      -n number - minimum number of results to fetch (if available) - default: 60 
     
@@ -242,7 +250,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                         * views       - in order of view count, most to least
                         * rating      - in order of like/dislike rating (1 to 5)
     
-    --path          -p "path/to/download/folder" - defaults to the current directory  
+    --path          -p string - defaults to the current directory  
     
     --period        -t hour|day|week|month|year|any - search result period - default: day
     
