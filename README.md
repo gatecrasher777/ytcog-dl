@@ -123,7 +123,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --path          -p "path/to/download/folder" - defaults to the current directory  
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the video object created by ytcog-dl)  
@@ -164,7 +164,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                        
     --path          -p "path/to/download/folder" - defaults to the current directory  
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
@@ -198,7 +198,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel results created by ytcog-dl)  
@@ -223,7 +223,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
                        
     --path          -p string - path to your download folder - defaults to the current directory  
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
@@ -251,7 +251,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the channel results created by ytcog-dl)                         
@@ -316,7 +316,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     
     --quantity      -Q number - if available the number of results will equal or exceed this number - default: 100
     
-    --raw           -r yes|no|only - save raw data options 
+    --raw           -R yes|no|only - save raw data options 
                         * yes                   - save raw json files, 
                         * no                    - skip saving raw json files (default), 
                         * only                  - save only the raw json files (not the search object created by ytcog-dl)  
