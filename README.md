@@ -36,7 +36,7 @@ Except for obtaining search results at least one __id__ is mandatory and can be
     --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
                           (raw: as supplied by youtube)
     --streamInfo    -s    output stream summary of video(id) to console 
-    --version       -v    ytcog-dl version
+    --version       -ver  ytcog-dl version
     --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
                           (raw: as supplied by youtube)  
 
