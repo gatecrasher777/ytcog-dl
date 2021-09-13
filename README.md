@@ -60,9 +60,9 @@ Prints a concise list of available streams for a video to the console. The order
 ```
 
 __id__ (string) is either an 11 character YouTube video id or a video watch url.
-__options__ (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
+__options__ (object) any of the [video stream summary options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
 
-[Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examples)
+See [Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examples)
 
 ### Channel information
 
@@ -97,7 +97,7 @@ Batch download videos from a channel.
 __id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
 __options__ (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
 
-[Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
+See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
 
 ### Playlist information
 
