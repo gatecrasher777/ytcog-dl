@@ -4,338 +4,152 @@ Command line interface (CLI) for the [ytcog innertube library](https://github.co
 
 A CLI wrapper to ytcog. From the command line you can:
 
-* Download one or more videos 
+* Download videos from ids/urls or from search, channel or playlist results
 * Obtain video information
-* Output a stream summary to choose specific streams
+* Output a stream summary to help choose specific streams
 * Save search results: videos, playlists, channels, movies
-* Save channel results: videos, playlists, related channels, about, search
-* Save playlist videos 
+* Save channel info and videos, playlists, related channels, or channel search results
+* Save playlist info and videos 
 
 Each command line request represents a completed session. 
-If you need the added efficiency of a maintaned session, rather use the [ytcog innertube library](https://github.com/gatecrasher777/ytcog) directly.  
+If you need the added efficiency of a maintained session, you can use the [ytcog innertube library](https://github.com/gatecrasher777/ytcog) directly.
 
 ## Usage
 
 ### In general:
 ```bash
-~$ ytcog-dl [action] id [id id ...] [options]
+~$ ytcog-dl [action] [id id id ...] [options]
 ```
-Except for obtaining search results at least one __id__ is mandatory and can be 
-* a video watch url, 
-* an 11 character YouTube video id,
-* a channel url
-* a 24 character channel id (beginning with "UC")  
-* a playlist url
-* a 34 character playlist id (beginning with "PL")
-
 
 #### Actions
 
-    --download      -d    download media file
+    --batch         -b    batch download videos from channel, playlist or search results
+    --download      -d    download one or more specified video(s)
     --help          -h    output useage/actions/options to console
     --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
                           (raw: as supplied by youtube)
-    --streamInfo    -s    output stream summary of video(id) to console 
-    --version       -ver  ytcog-dl version
     --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
-                          (raw: as supplied by youtube)  
-
-#### General options (common to all requests)
-
-     --cookie        -c string - provide a logged-in YouTube cookie string - default: ""
-    
-     --userAgent     -u string - user agent string - default: one is chosen for you
+                          (raw: as supplied by youtube)
+    --streamInfo    -s    output stream summary of video(id) to the console (assists stream selection)
+    --version       -ver  provides ytcog and ytcog-dl version information
 
 ### Video Downloads
 
 ```bash
-~$ ytcog-dl [-d] id [id id ... ][options]
+~$ ytcog-dl [-d|--download] id [id id ... ][options]
 ```
 
-#### Options
+__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__options__ (object) any of the [video download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#download-options)  
 
-    --audioFormat   -A number - specific audio stream number to download - default: -1 (use preference algorithm and fallback   
-                       streams)
-    
-    --audioQuality  -a highest|medium|lowest|none - audio quality preference - none for video only - default: medium
-        
-    --container     -C any|mp4|webm|mkv - provide your container preference - default: any
-        * any                   - no preference between mp4 (h264 with aac) or webm (vp9 with opus) (default)
-        * mp4                   - prefers mp4 codecs to webm codecs when quality is equal
-        * webm                  - prefers webm codecs to mp4 codecs when quality is equal 
-        * mkv                   - no preference and can additionally allow mixed formats (vp9 with aac) or (mp4 with opus). 
-    
-    --filename      -f string - supply a filename - you can use the following placeholders in your filename string, 
-                       such as:
-                        * ${audioCodec}         - aac or opus
-                        * ${author}             - channel display name
-                        * ${channel}            - channel id of video
-                        * ${date}               - YYYYMMDD - published date for video
-                        * ${datetime}           - YYYYMMDD HHMMSS - published date & time for video
-                        * ${id}                 - video id        
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, published timestamp for video
-                        * ${title}              - video title
-                        * ${videoCodec}         - h264 or vp9
-                        * ${videoQuality}       - i.e. 1080p, 360p, etc
-                        * ${...}                - you can use any other video/channel/search info properties
-                       The default filename is "${author}_${datetime}_${title}_${id}_${videoQuality}_${videoCodec}_${audioCodec}"
-    
-    --mediaBitrate  -M highest|lowest - prefered bitrate when quality of two streams is equal - default: highest
-    
-    --metadata      -m author|title|description|keywords|published|comment|key [string] - video property to embed in downloaded file  
-                       one or more (i.e. -m author -m title) of  
-                        * author          - reflects as AUTHOR in webm/mkv containers, as artist in mp4 containers
-                        * title           - reflects as TITLE in webm/mkv containers, as title in mp4 containers
-                        * description     - reflects as DESCRIPTION in webm/mkv containers, as description in mp4 containers
-                        * keywords        - reflects as KEYWORDS in webm/mkv containers, as synopsis in mp4 containers
-                        * published       - reflects as DATE in webm/mkv containers, as date in mp4 containers
-                        * comment text    - custom text, reflects as COMMENT in webm/mkv, as comment in mp4 containers
-                        * key value       - custom key, custom value. key must be a single word without spaces
-                       [string] is required for a comment metadata, and if specified for any other metadata fields its value  
-                       will be used to override the fetched video property. 
-    
-    --path          -p string - string should specify the path to the download folder. Defaults to the current directory. 
-    
-    --videoFormat   -V number - specific video stream to download. Default: -1 (use preference algorithm and fallback streams)
-    
-    --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
-                       default 1080p
-                       
-### Video information
+### Video Information
 
 ```bash
-~$ ytcog-dl -i id [id id ... ][options]
+~$ ytcog-dl -i|--info id [id id ... ][options]
 ```
 
-#### Options
-    
-    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
-                       such as:
-                        * ${author}             - channel display name
-                        * ${channel}            - channel id of video
-                        * ${date}               - YYYYMMDD - published date for video
-                        * ${datetime}           - YYYYMMDD HHMMSS - published date & time for video
-                        * ${id}                 - video or channel id
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, published timestamp for video
-                        * ${title}              - video title
-                        * ${...}                - you can use any other video info properties
-                        The default filename is  "${author}_${datetime}_${title}_${id}"
-    
-    --path          -p "path/to/download/folder" - defaults to the current directory  
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the video object created by ytcog-dl)  
+__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__options__ (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#information-options)
                         
-### Stream summaries
+### Video Stream Summary
+
+Prints a concise list of available streams for a video to the console. The order is determined by an algorithm based on your preferences.
 
 ```bash
-~$ ytcog-dl -s id [id id ... ][options]
+~$ ytcog-dl -s|--streamInfo id [id id ... ][options]
 ```
 
-#### Options
+__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__options__ (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
 
-    --audioQuality  -a highest|medium|lowest|none - audio quality preference - none for video only - default medium
-    
-    --container     -C any|mp4|webm|mkv - provide your container preference - default is mkv
-    
-    --mediaBitrate  -M highest|lowest - prefered bitrate when quality is equal - default: highest
-    
-    --videoQuality  -v highest|1080p|720p|480p|medium|360p|240p|144p|lowest|none - video quality preference - none for audio only  
-                       default: 1080p
-                       
+[Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examples)
+
 ### Channel information
+
+Collects channel metadata and properties and saves the data.
+
 ```bash
-~$ ytcog-dl -i id [id id ... ][options]
+~$ ytcog-dl [-i|--info] id [id id ... ][options]
 ```
 
-#### Options    
-    
-    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
-                       such as:
-                        * ${author}             - channel display name
-                        * ${date}               - YYYYMMDD - current date 
-                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time 
-                        * ${id}                 - channel id
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
-                        * ${...}                - you can use any other video/channel/search info properties
-                       The default filename is "${author}_${id}_${datetime}_channel"
-                       
-    --path          -p "path/to/download/folder" - defaults to the current directory  
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__options__ (object) any of the [channel information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#information-options)
 
 ### Channel results
 
+Collects detailed lists of videos, playlists, and related channels and allows you to search a channel.  
+
 ```bash
-~$ ytcog-dl [-r] id [id id ... ][options]
+~$ ytcog-dl -r|--result id [id id ... ][options]
 ```
 
-#### Options    
-    
-    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename    
-                       string, such as:
-                        * ${author}             - channel display name
-                        * ${date}               - YYYYMMDD - current date
-                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time
-                        * ${id}                 - channel id
-                        * ${order}              - result order
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
-                        * ${...}                - you can use any other video/channel/search info properties
-                       The default filename is "${author}_${id}_${datetime}_${order}_channel"
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__options__ (object) any of the [channel result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#result-options)
+     
+### Channel downloads
 
-    --items         -i videos|playlists|channels|search - what items to fetch - default: videos
+Batch download videos from a channel. 
 
-    --order         -o new|old|views|updated - order of results - default: new 
-    
-    --path          -p string - defaults to the current directory  
+```bash
+~$ ytcog-dl [-b|--batch] id [id id ... ][options]
+```
 
-    --query         -q string - provide a search term - default: "video" (applies only to items:search)
-    
-    --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the channel results created by ytcog-dl)  
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__options__ (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
+
+[Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
 
 ### Playlist information
+
+Collects metadta and properties of a playlist.
+
 ```bash
-~$ ytcog-dl -i id [id id ... ][options]
+~$ ytcog-dl -i|-info id [id id ... ][options]
 ```
 
-#### Options    
-    
-    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename string,  
-                       such as:
-                        * ${compiler}           - compiler's channel display name
-                        * ${date}               - YYYYMMDD - current date 
-                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time 
-                        * ${id}                 - playlist id
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
-                        * ${title}              - title of the playlist
-                        * ${...}                - you can use any other playlist properties
-                       The default filename is "${compiler}_${title}_${id}_${datetime}_playlist"
-                       
-    --path          -p string - path to your download folder - defaults to the current directory  
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the channel object created by ytcog-dl)  
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__options__ (object) any of the [playlist information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#information-options)
 
 ### Playlist results
 
+Collects video results from a playlist.
+
 ```bash
-~$ ytcog-dl [-r] id [id id ... ][options]
+~$ ytcog-dl -r|--result id [id id ... ][options]
 ```
 
-#### Options    
-    
-    --filename      -f string - supply a filename without path or extension - you can use the placeholders in your filename    
-                       string, such as:
-                        * ${compiler}           - compiler's channel display name
-                        * ${date}               - YYYYMMDD - current date
-                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time
-                        * ${id}                 - playlist id
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
-                        * ${title}              - title of the playlist
-                        * ${...}                - you can use any other playlist properties
-                       The default filename is "${compiler}_${title}_${id}_${datetime}_playlist"
-    
-    --path          -p string - defaults to the current directory  
-    
-    --quantity      -Q number - minimum number of results to fetch (if available) - default: 60 
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the channel results created by ytcog-dl)                         
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__options__ (object) any of the [playlist result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#result-options)
+
+### PLaylist downloads
+
+Batch download videos from a playlist. 
+
+```bash
+~$ ytcog-dl [-b|--batch] id [id id ... ][options]
+```
+
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__options__ (object) any of the [playlist download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#download-options)
+
+See [Playlist examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#examples)
 
 ### Search results
 
 ```bash
-~$ ytcod-dl [-r] [options]
+~$ ytcod-dl -r|result [options]
 ```
+__options__ (object) any of the [search result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#result-options)
 
-#### Options
-    
-    --features      -F live|4k|hd|subtitles|cc|360|vr180|3d|hdr|location|purchased  
-                       you can add one (ie -F live) or more (ie -F live -F hd) features from:
-                        * live                  - only include live videos
-                        * 4k                    - only include videos with 4k resolution
-                        * hd                    - only include videos with high definition
-                        * subtitles             - only include videos with subtitles or close captions
-                        * cc                    - only include videos published under creative commons licence
-                        * 360                   - only include 360 degree videos
-                        * vr180                 - only include virtual reality 180 degree videos
-                        * 3d                    - only include 3 dimensional videos
-                        * hdr                   - only include videos with high dynamic range 
-                        * location              - only include videos with geolocation tagging
-                        * purchased             - only include videos you have purchased
-        
-    --filename      -f string - supply a filename without path or extension  
-                       you can use the placeholders in your filename string, such as:
-                        * ${date}               - YYYYMMDD - current date
-                        * ${datetime}           - YYYYMMDD HHMMSS - current date & time      
-                        * ${order}              - result order
-                        * ${period}             - result period
-                        * ${query}              - search term
-                        * ${timestamp}          - unix timestamp - seconds since the epoch, current timestamp
-                        * ${...}                - you can use any other search info properties
-                        The default filename is "${query}_${datetime}_${order}_${period}_search"
-        
-    --items         -i any|videos|channels|playlists|movies - what items to search for - default: videos
-                        * any                   - results may include videos, channels or playlists
-                        * videos                - results must contain videos only
-                        * playlists             - results must contain playlists only
-                        * channels              - results must contain channels only
-                        * movies                - results must contain movies (videos tagged as movies)
-   
-    --length        -l any|short|medium|long - length of videos to include in search results 
-                        * any                   - videos of any length (default)
-                        * short                 - videos less than 4 minutes long
-                        * medium                - videos from 4 to 20 minutes long
-                        * long                  - videos longer than 20 minutes
-   
-    --order         -o relevance|age|views|rating - order of results - one of 
-                        * relevance   - in order of relevance to search term
-                        * age         - in age order, newest to oldest
-                        * views       - in order of view count, most to least
-                        * rating      - in order of like/dislike rating (1 to 5)
-    
-    --path          -p string - defaults to the current directory  
-    
-    --period        -P hour|day|week|month|year|any - search result period - default: day
-    
-    --query         -q string - provide a search term - default: "video"
-    
-    --quantity      -Q number - if available the number of results will equal or exceed this number - default: 100
-    
-    --raw           -R yes|no|only - save raw data options 
-                        * yes                   - save raw json files, 
-                        * no                    - skip saving raw json files (default), 
-                        * only                  - save only the raw json files (not the search object created by ytcog-dl)  
-    
-## Examples 
-    
+### Search results
+
 ```bash
-// downloads 3 videos at highest quality, preferring webm:
-~$ ytcog-dl https://www.youtube.com/watch?v=jsadYFJBH1h 78fklaTjkW- www.youtube.com/watch?v=alN0qw1Ojdh -v highest -C webm 
-
-//downlaod a video with filename consisting only of the original title. Embed specified metadata
-~$ ytcod-dl jsadYFJBH1h -f "${title}" -m author -m title -d comment "my first video"
-
-// get the 60+ newest videos from a channel
-~$ ytcog-dl UC128HASYghgkjYGEYGVS-J1 
-
-// get 200+ most viewed video results using the search term "soccer" over the past week
-~$ ytcog-dl -q "soccer" -P week -o views -Q 200 
+~$ ytcod-dl [-b|--batch] [options]
 ```
+__options__ (object) any of the [search download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#download-options)
+
+See [Search examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#examples)
+
 ## Installation
 
 ```bash
