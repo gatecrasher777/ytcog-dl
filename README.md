@@ -28,7 +28,7 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
     --help          -h    output useage/actions/options to console
     --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
                           (raw: as supplied by youtube)
-    --results       -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
+    --result        -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
                           (raw: as supplied by youtube)
     --streamInfo    -s    output stream summary of video(id) to the console (assists stream selection)
     --version       -ver  provides ytcog and ytcog-dl version information
