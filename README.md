@@ -35,7 +35,17 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
 
 #### General Options
 
-    --cookie        -c string - provide a logged-in YouTube cookie string - default: ""    
+    --cookie        -c string - provide a logged-in YouTube cookie string - default: ""   
+    --save          -S all|info|raw|none - retrieved data save options 
+                        * all                   - save ytcog and raw yt generated json files
+                        * info                  - save ytcog generated json files only
+                        * raw                   - save raw yt generated json files only
+                        * none                  - save nothing  
+    --saveFilename  -sf string - supply a filename without path or extension - you can any other video/channel/search info 
+                        properties as templates in the string. For example:
+                        ${author} ${date} ${datetime} ${id} ${timestamp} ${title} etc...
+                        Each request type has an appropriate default.
+    --savePath      -sp string - data save path - defaults to '.' the current directory 
     --userAgent     -u string - user agent string - default: one is chosen for you
 
 ### Video Downloads
