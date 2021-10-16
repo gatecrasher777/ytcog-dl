@@ -33,6 +33,11 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
     --streamInfo    -s    output stream summary of video(id) to the console (assists stream selection)
     --version       -ver  provides ytcog and ytcog-dl version information
 
+#### General Options
+
+    --cookie        -c string - provide a logged-in YouTube cookie string - default: ""    
+    --userAgent     -u string - user agent string - default: one is chosen for you
+
 ### Video Downloads
 
 ```bash
