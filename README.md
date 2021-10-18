@@ -1,4 +1,4 @@
-# ytcog-dl (almost ready)
+# ytcog-dl (testing...)
 Command line interface (CLI) for the [ytcog innertube library](https://github.com/gatecrasher777/ytcog)  
 (Work-in-progress)
 
