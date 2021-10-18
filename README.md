@@ -1,15 +1,14 @@
 # ytcog-dl (testing...)
-Command line interface (CLI) for the [ytcog innertube library](https://github.com/gatecrasher777/ytcog)  
-(Work-in-progress)
+A command line interface (CLI) for [ytcog](https://github.com/gatecrasher777/ytcog), the YouTube innertube class library for node-js.
 
-A CLI wrapper to ytcog. From the command line you can:
+From the command line you can:
 
-* Download videos from ids/urls or from search, channel or playlist results
+* Download videos from ids/urls or batch downloads from search, channel or playlist results
 * Obtain video information
-* Output a stream summary to help choose specific streams
+* Output a stream summary to help choose specific download streams
 * Save search results: videos, playlists, channels, movies
-* Save channel info and videos, playlists, related channels, or channel search results
-* Save playlist info and videos 
+* Save channel information and videos, playlists, related channels, or channel search results
+* Save playlist information and videos or convert your favorite playlist to an mp3/flac audio library.
 
 Each command line request represents a completed session. 
 If you need the added efficiency of a maintained session, you can use the [ytcog innertube library](https://github.com/gatecrasher777/ytcog) directly.
@@ -41,12 +40,14 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
                         * info                  - save ytcog generated json files only
                         * raw                   - save raw yt generated json files only
                         * none                  - save nothing  
-    --saveFilename  -sf string - supply a filename without path or extension - you can any other video/channel/search info 
+    --saveFilename  -sf string - supply a filename without path or extension - you use any video/search/channel/playlist
                         properties as templates in the string. For example:
                         ${author} ${date} ${datetime} ${id} ${timestamp} ${title} etc...
                         Each request type has an appropriate default.
     --savePath      -sp string - data save path - defaults to '.' the current directory 
     --userAgent     -u string - user agent string - default: one is chosen for you
+
+See the [ytcog wiki](https://github.com/gatecrasher777/ytcog/wiki) for lists of [video](https://github.com/gatecrasher777/ytcog/wiki/Video#properties)/[search](https://github.com/gatecrasher777/ytcog/wiki/Search#properties)/[channel](https://github.com/gatecrasher777/ytcog/wiki/Channel#properties)/[playlist](https://github.com/gatecrasher777/ytcog/wiki/Playlist#properties) properties.
 
 ### Video Downloads
 
