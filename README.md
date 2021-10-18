@@ -54,7 +54,7 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
 ~$ ytcog-dl [-d|--download] id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__id__ (string) is either an 11 character YouTube video id or a video watch url.  
 __options__ (object) any of the [video download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#download-options)  
 
 ### Video Information
@@ -63,7 +63,7 @@ __options__ (object) any of the [video download options](https://github.com/gate
 ~$ ytcog-dl -i|--info id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__id__ (string) is either an 11 character YouTube video id or a video watch url.  
 __options__ (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#information-options)
                         
 ### Video Stream Summary
@@ -74,7 +74,7 @@ Prints a concise list of available streams for a video to the console. The order
 ~$ ytcog-dl -s|--streamInfo id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.
+__id__ (string) is either an 11 character YouTube video id or a video watch url.  
 __options__ (object) any of the [video stream summary options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
 
 See [Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examples)
@@ -87,7 +87,7 @@ Collects channel metadata and properties and saves the data.
 ~$ ytcog-dl [-i|--info] id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 __options__ (object) any of the [channel information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#information-options)
 
 ### Channel results
@@ -98,7 +98,7 @@ Collects detailed lists of videos, playlists, and related channels and allows yo
 ~$ ytcog-dl -r|--result id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 __options__ (object) any of the [channel result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#result-options)
      
 ### Channel downloads
@@ -109,7 +109,7 @@ Batch download videos from a channel.
 ~$ ytcog-dl [-b|--batch] id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.
+__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 __options__ (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
 
 See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
@@ -122,7 +122,7 @@ Collects metadta and properties of a playlist.
 ~$ ytcog-dl -i|-info id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
 __options__ (object) any of the [playlist information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#information-options)
 
 ### Playlist results
@@ -133,7 +133,7 @@ Collects video results from a playlist.
 ~$ ytcog-dl -r|--result id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
 __options__ (object) any of the [playlist result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#result-options)
 
 ### PLaylist downloads
@@ -144,7 +144,7 @@ Batch download videos from a playlist.
 ~$ ytcog-dl [-b|--batch] id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.
+__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
 __options__ (object) any of the [playlist download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#download-options)
 
 See [Playlist examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#examples)
