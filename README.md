@@ -22,8 +22,7 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
 
 #### Actions
 
-    --batch         -b    batch download videos from channel, playlist or search results
-    --download      -d    download one or more specified video(s)
+    --download      -d    download one or more specified video(s), or batch download videos from channel, playlist or search results
     --help          -h    output useage/actions/options to console
     --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
                           (raw: as supplied by youtube)
