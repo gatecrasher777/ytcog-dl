@@ -1,0 +1,46 @@
+{
+	"name": "ytcog-dl",
+	"version": "1.0.0",
+	"preferGlobal": true,
+	"description": "CLI for ytcog - YouTube innertube library; session, searches, channels, playlists, videos and downloads.",
+	"bin": {
+		"ytcog-dl": "./index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gatecrasher777/ytcog-dl.git"
+	},
+	"dependencies": {
+		"ytcog": "^2.1.2"
+	},
+	"keywords": [
+		"youtube",
+		"search",
+		"channel",
+		"video",
+		"innertube",
+		"innertubeapi",
+		"playlist",
+		"session",
+		"download",
+		"library"
+	],
+	"author": "gatecrasher777",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/gatecrasher777/ytcog-dl/issues"
+	},
+	"homepage": "https://github.com/gatecrasher777/ytcog-dl#readme",
+	"scripts": {
+		"test": "nyc --reporter=lcov --reporter=text-summary npm run test:unit",
+		"lint": "eslint ./",
+		"lint:fix": "eslint --fix ./"
+	},
+	"devDependencies": {
+		"eslint": "^8.0.0",
+		"mocha": "^9.1.2"
+	},
+	"engines": {
+		"node": ">=14"
+	}
+}
