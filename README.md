@@ -1,4 +1,7 @@
-# ytcog-dl (testing...)
+# ytcog-dl
+![NPM](https://img.shields.io/npm/l/ytcog-dl?style=plastic)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Gatecrasher777/ytcog-dl?style=plastic)  
+
 A command line interface (CLI) for [ytcog](https://github.com/gatecrasher777/ytcog), the YouTube innertube class library for node-js.
 
 From the command line you can:
