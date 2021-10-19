@@ -29,7 +29,6 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
     --result        -r    fetch search/channel/playlist results - written to "_results.json" and "_raw_results.json" files.
                           (raw: as supplied by youtube)
     --streamInfo    -s    output stream summary of video(id) to the console (assists stream selection)
-    --version       -ver  provides ytcog and ytcog-dl version information
 
 #### General Options
 
