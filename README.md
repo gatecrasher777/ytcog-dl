@@ -108,7 +108,7 @@ __options__ (object) any of the [channel result options](https://github.com/gate
 Batch download videos from a channel. 
 
 ```bash
-~$ ytcog-dl [-b|--batch] id [id id ... ][options]
+~$ ytcog-dl [-d|--download] id [id id ... ][options]
 ```
 
 __id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
@@ -121,7 +121,7 @@ See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#e
 Collects metadta and properties of a playlist.
 
 ```bash
-~$ ytcog-dl -i|-info id [id id ... ][options]
+~$ ytcog-dl -i|--info id [id id ... ][options]
 ```
 
 __id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
@@ -143,7 +143,7 @@ __options__ (object) any of the [playlist result options](https://github.com/gat
 Batch download videos from a playlist. 
 
 ```bash
-~$ ytcog-dl [-b|--batch] id [id id ... ][options]
+~$ ytcog-dl [-d|--download] id [id id ... ][options]
 ```
 
 __id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
@@ -161,7 +161,7 @@ __options__ (object) any of the [search result options](https://github.com/gatec
 ### Search results
 
 ```bash
-~$ ytcod-dl [-b|--batch] [options]
+~$ ytcod-dl [-d|--download] [options]
 ```
 __options__ (object) any of the [search download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#download-options)
 
