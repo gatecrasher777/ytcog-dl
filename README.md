@@ -35,7 +35,8 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
 
 #### General Options
 
-    --cookie        -c string - provide a logged-in YouTube cookie string - default: ""   
+    --cookie        -c string - provide a logged-in YouTube cookie string - default: ''
+    --proxy         -x string - provide a proxy agent Uri - i.e "http://127.0.0.1:8000"
     --save          -S all|info|raw|none - retrieved data save options 
                         * all                   - save ytcog and raw yt generated json files
                         * info                  - save ytcog generated json files only
