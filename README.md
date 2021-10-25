@@ -20,12 +20,12 @@ If you need the added efficiency of a maintained session, you can use the [ytcog
 
 ### In general:
 ```bash
-~$ ytcog-dl [action] [id id id ...] [options]
+> ytcog-dl [action] [id id id ...] [options]
 ```
 
 #### Actions
 
-    --download      -d    download one or more specified video(s), or batch download videos from channel, playlist or search results
+    --download      -d    download one or more specified video(s), or batch download videos from channel, playlist or search results. (default)
     --help          -h    output useage/actions/options to console
     --info          -i    fetch video/channel/playlist information - written to "_info.json" and "_raw_info.json" files.  
                           (raw: as supplied by youtube)
@@ -54,31 +54,34 @@ See the [ytcog wiki](https://github.com/gatecrasher777/ytcog/wiki) for lists of 
 ### Video Downloads
 
 ```bash
-~$ ytcog-dl [-d|--download] id [id id ... ][options]
+> ytcog-dl --download id [id id ... ][options]
+> ytcog-dl -d id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.  
-__options__ (object) any of the [video download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#download-options)  
+```id``` (string) is either an 11 character YouTube video id or a video watch url.  
+```options``` (object) any of the [video download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#download-options)  
 
 ### Video Information
 
 ```bash
-~$ ytcog-dl -i|--info id [id id ... ][options]
+> ytcog-dl --info id [id id ... ][options]
+> ytcog-dl -i id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.  
-__options__ (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#information-options)
+```id``` (string) is either an 11 character YouTube video id or a video watch url.  
+```options``` (object) any of the [video information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#information-options)
                         
 ### Video Stream Summary
 
 Prints a concise list of available streams for a video to the console. The order is determined by an algorithm based on your preferences.
 
 ```bash
-~$ ytcog-dl -s|--streamInfo id [id id ... ][options]
+> ytcog-dl --streamInfo id [id id ... ][options]
+> ytcog-dl -s id [id id ... ][options]
 ```
 
-__id__ (string) is either an 11 character YouTube video id or a video watch url.  
-__options__ (object) any of the [video stream summary options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
+```id``` (string) is either an 11 character YouTube video id or a video watch url.  
+```options``` (object) any of the [video stream summary options](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#stream-summary-options)
 
 See [Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examples)
 
@@ -87,33 +90,36 @@ See [Video examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Video#examp
 Collects channel metadata and properties and saves the data.
 
 ```bash
-~$ ytcog-dl [-i|--info] id [id id ... ][options]
+> ytcog-dl --info id [id id ... ][options]
+> ytcog-dl -i id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
-__options__ (object) any of the [channel information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#information-options)
+```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```options``` (object) any of the [channel information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#information-options)
 
 ### Channel results
 
 Collects detailed lists of videos, playlists, and related channels and allows you to search a channel.  
 
 ```bash
-~$ ytcog-dl -r|--result id [id id ... ][options]
+> ytcog-dl --result id [id id ... ][options]
+> ytcog-dl --r id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
-__options__ (object) any of the [channel result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#result-options)
+```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```options``` (object) any of the [channel result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#result-options)
      
 ### Channel downloads
 
 Batch download videos from a channel. 
 
 ```bash
-~$ ytcog-dl [-d|--download] id [id id ... ][options]
+> ytcog-dl --download id [id id ... ][options]
+> ytcog-dl -d id [id id ... ][options]
 ```
 
-__id__ (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
-__options__ (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
+```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```options``` (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
 
 See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
 
@@ -122,54 +128,59 @@ See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#e
 Collects metadta and properties of a playlist.
 
 ```bash
-~$ ytcog-dl -i|--info id [id id ... ][options]
+> ytcog-dl --info id [id id ... ][options]
+> ytcog-dl -i id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
-__options__ (object) any of the [playlist information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#information-options)
+```id``` (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
+```options``` (object) any of the [playlist information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#information-options)
 
 ### Playlist results
 
 Collects video results from a playlist.
 
 ```bash
-~$ ytcog-dl -r|--result id [id id ... ][options]
+> ytcog-dl --result id [id id ... ][options]
+> ytcog-dl -r id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
-__options__ (object) any of the [playlist result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#result-options)
+```id``` (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
+```options``` (object) any of the [playlist result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#result-options)
 
 ### PLaylist downloads
 
 Batch download videos from a playlist. 
 
 ```bash
-~$ ytcog-dl [-d|--download] id [id id ... ][options]
+> ytcog-dl --download id [id id ... ][options]
+> ytcog-dl -d id [id id ... ][options]
 ```
 
-__id__ (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
-__options__ (object) any of the [playlist download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#download-options)
+```id``` (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
+```options``` (object) any of the [playlist download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#download-options)
 
 See [Playlist examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#examples)
 
 ### Search results
 
 ```bash
-~$ ytcod-dl -r|result [options]
+> ytcod-dl --result [options]
+> ytcod-dl -r [options]
 ```
-__options__ (object) any of the [search result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#result-options)
+```options``` (object) any of the [search result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#result-options)
 
-### Search results
+### Search downloads
 
 ```bash
-~$ ytcod-dl [-d|--download] [options]
+> ytcod-dl --download [options]
+> ytcod-dl -d [options]
 ```
-__options__ (object) any of the [search download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#download-options)
+```options``` (object) any of the [search download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#download-options)
 
 See [Search examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Search#examples)
 
 ## Installation
 
 ```bash
-~$ npm install -g ytcog-dl
+> npm install -g ytcog-dl
 ```
