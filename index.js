@@ -15,10 +15,12 @@ class Command {
 		this.action = 'batch';
 		this.id = [];
 		this.cookie = '';
-		this.agent = '';
+		this.userAgent = '';
+		this.proxy = '';
 		this.repeat = -1;
 		this.concurrent = 10;
 		this.maxdl = -1;
+		this.proxy = '';
 		this.saveFilename = '';
 		this.savePath = '.';
 		this.save = 'all';
@@ -94,7 +96,7 @@ class Command {
 		let lastpc = '0.0';
 		let mb = '0.0';
 		let mbs = '0.000';
-		let dl = vid => new Promise( async (resolve, reject) => {
+		let dl = vid => new Promise(async(resolve, reject) => {
 			let go = false;
 			do {
 				if (inprogress < this.concurrent) {
@@ -354,7 +356,7 @@ class Command {
 			};
 			const getStringOption = option => {
 				if (ao) {
-					if (['cookie', 'userAgent', 'saveFilename', 'savePath'].includes(option)) {
+					if (['cookie', 'userAgent', 'saveFilename', 'savePath', 'proxy'].includes(option)) {
 						app[option] = nextString();
 					} else {
 						this.options[option] = nextString();
@@ -461,6 +463,7 @@ class Command {
 				switch (this.current) {
 					case '-a': case '--audioQuality': getWordOption('audioQuality', ['highest', 'medium', 'lowest',
 						'none']); break;
+					case '-b': case '--subtitles': getStringOption('subtitles'); break;
 					case '-c': case '--cookie': getStringOption('cookie'); break;
 					case '-d': case '--download': getAction('download'); break;
 					case '-f': case '--filename': getStringOption('filename'); break;
@@ -479,6 +482,7 @@ class Command {
 					case '-u': case '--userAgent': getStringOption('userAgent'); break;
 					case '-v': case '--videoQuality': getWordOption('videoQuality', ['highest', '1080p', '720p', '480p',
 						'medium', '360p', '240p', '144p', 'lowest', 'none']); break;
+					case '-x': case '--proxy': getStringOption('proxy'); break;
 					case '-A': case '--audioFormat': getNumberOption('audioFormat'); break;
 					case '-C': case '--container': getWordOption('container', ['any', 'mp4', 'webm', 'mkv', 'mp3',
 						'flac']); break;
@@ -497,7 +501,7 @@ class Command {
 					default: getId(); break;
 				}
 			}
-			this.session = new ytcog.Session(this.cookie, this.agent);
+			this.session = new ytcog.Session(this.cookie, this.userAgent, this.proxy);
 			await this.session.fetch();
 			if (this.session.status === 'OK') {
 				await this.process();

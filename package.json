@@ -1,6 +1,6 @@
 {
 	"name": "ytcog-dl",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"preferGlobal": true,
 	"description": "CLI for ytcog - YouTube innertube library; session, searches, channels, playlists, videos and downloads.",
 	"bin": {
@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/gatecrasher777/ytcog-dl.git"
 	},
 	"dependencies": {
-		"ytcog": "^2.1.2"
+		"ytcog": "^2.2.0"
 	},
 	"keywords": [
 		"youtube",
