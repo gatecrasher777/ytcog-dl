@@ -94,7 +94,7 @@ Collects channel metadata and properties and saves the data.
 > ytcog-dl -i id [id id ... ][options]
 ```
 
-```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```id``` (string) is either a 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 ```options``` (object) any of the [channel information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#information-options)
 
 ### Channel results
@@ -106,7 +106,7 @@ Collects detailed lists of videos, playlists, and related channels and allows yo
 > ytcog-dl --r id [id id ... ][options]
 ```
 
-```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```id``` (string) is either a 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 ```options``` (object) any of the [channel result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#result-options)
      
 ### Channel downloads
@@ -118,7 +118,7 @@ Batch download videos from a channel.
 > ytcog-dl -d id [id id ... ][options]
 ```
 
-```id``` (string) is either an 24 character YouTube channel id  (commencing 'UC') or a channel url.  
+```id``` (string) is either a 24 character YouTube channel id  (commencing 'UC') or a channel url.  
 ```options``` (object) any of the [channel download options](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#download-options)
 
 See [Channel examples](https://github.com/gatecrasher777/ytcog-dl/wiki/Channel#examples)
@@ -132,7 +132,7 @@ Collects metadta and properties of a playlist.
 > ytcog-dl -i id [id id ... ][options]
 ```
 
-```id``` (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
+```id``` (string) is either a 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
 ```options``` (object) any of the [playlist information options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#information-options)
 
 ### Playlist results
@@ -144,7 +144,7 @@ Collects video results from a playlist.
 > ytcog-dl -r id [id id ... ][options]
 ```
 
-```id``` (string) is either an 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
+```id``` (string) is either a 34 character YouTube channel id  (commencing 'PL') or a playlist url.  
 ```options``` (object) any of the [playlist result options](https://github.com/gatecrasher777/ytcog-dl/wiki/Playlist#result-options)
 
 ### PLaylist downloads
