@@ -352,6 +352,7 @@ class Command {
 			};
 			const nextString = () => {
 				c++;
+				if (c>=process.argv.length) return '';
 				return process.argv[c];
 			};
 			const getStringOption = option => {
@@ -410,6 +411,7 @@ class Command {
 			};
 			const getMetadata = () => {
 				if (ao) {
+					if (!this.options.metadata) this.options.metadata = '';
 					let m = nextOption(['author', 'title', 'date', 'description', 'keywords',
 						'comment'], false) || nextString();
 					let v = nextString();
@@ -427,6 +429,7 @@ class Command {
 			};
 			const getFeatures = () => {
 				if (ao) {
+					if (!this.options.features) this.options.features = '';
 					let f = nextOption(['live', '4k', 'hd', 'subtitles', 'cc', '360', 'vr180', '3d',
 						'hdr', 'location', 'purchased']);
 					this.options.features += this.options.features.length ? `,${f}` : f;
